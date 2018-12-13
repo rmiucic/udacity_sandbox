@@ -68,26 +68,19 @@ void Tracking::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
 	
     // TODO: YOUR CODE HERE
 	//1. Modify the F matrix so that the time is integrated
-    kf_.F_ << 1, 0, dt, 0,
-              0, 1, 0, dt,
-              0, 0, 1, 0,
-              0, 0, 0, 1;
+	kf_.F_(0, 2) = dt;
+	kf_.F_(1, 3) = dt;
 
 	//2. Set the process covariance matrix Q
-    float Q_00=dt*dt*dt*dt/4*noise_ax;
-    float Q_02=dt*dt*dt/2*noise_ax;
-    float Q_11=dt*dt*dt*dt/4*noise_ay;
-    float Q_13=dt*dt*dt/2*noise_ay;
-    float Q_20=dt*dt*dt/2*noise_ax;
-    float Q_22=dt*dt*noise_ax;
-    float Q_31=dt*dt*dt/2*noise_ay;
-    float Q_33=dt*dt*noise_ay;
+    float dt_2 = dt * dt;
+	float dt_3 = dt_2 * dt;
+	float dt_4 = dt_3 * dt;
     
 	kf_.Q_ = MatrixXd(4, 4);
-    kf_.Q_ << Q_00, 0   , Q_02, 0   ,
-              0   , Q_11, 0   , Q_13,
-              Q_20, 0   , Q_22, 0   ,
-              0   , Q_31, 0   , Q_33,
+	kf_.Q_ <<  dt_4/4*noise_ax, 0, dt_3/2*noise_ax, 0,
+			   0, dt_4/4*noise_ay, 0, dt_3/2*noise_ay,
+			   dt_3/2*noise_ax, 0, dt_2*noise_ax, 0,
+			   0, dt_3/2*noise_ay, 0, dt_2*noise_ay;
     
 	//3. Call the Kalman Filter predict() function
     kf_.Predict();
