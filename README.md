@@ -1,25 +1,8 @@
 # udacity_sandbox
 # Bicycle Model
-```math #yourmathlabel
-a + b = c
-
-$ \sum_{\forall i}{x_i^{2}} $
-```
-![\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}]
-
-$E = mc^2$
-
-![\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}](https://latex.codecogs.com/svg.latex?x%3D%5Cfrac%7B-b%5Cpm%5Csqrt%7Bb%5E2-4ac%7D%7D%7B2a%7D)
-![x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}](https://latex.codecogs.com/svg.latex?x%3D%5Cfrac%7B-b%5Cpm%5Csqrt%7Bb%5E2-4ac%7D%7D%7B2a%7D)
-
-![\dot{\Theta}=0](https://latex.codecogs.com/svg.latex?x%3D%5Cfrac%7B-b%5Cpm%5Csqrt%7Bb%5E2-4ac%7D%7D%7B2a%7D)
+if yaw rate is zero
 <img src="https://latex.codecogs.com/gif.latex?\dot{\Theta}=0" title="\dot{\Theta}=0" />
-```python
-def foo():
-    if not bar:
-        return True
-```
-
-def foo():
-    if not bar:
-        return True
+then
+<img src="https://latex.codecogs.com/gif.latex?x_{f}=x_{0}&plus;v*dt*cos(\Theta_{0})" title="x_{f}=x_{0}+v*dt*cos(\Theta_{0})" />
+<img src="https://latex.codecogs.com/gif.latex?y_{f}=y_{0}&plus;v*dt*sin(\Theta_{0})" title="y_{f}=y_{0}+v*dt*sin(\Theta_{0})" />
+<img src="https://latex.codecogs.com/gif.latex?\Theta_{f}=\Theta_{0}" title="\Theta_{f}=\Theta_{0}" />
